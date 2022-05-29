@@ -7,6 +7,19 @@ Created on Sat May 28 22:10:04 2022
 import pandas as pd
 from matplotlib import pyplot as plt
 
-df = pd.read_csv('mega_sena_asloterias_ate_concurso_2484_sorteio.csv', skiprows=6)
+## carraga o historico de sorteios anterioes
 
-df['bola 1'].plot()
+fileName = 'mega_sena_asloterias_ate_concurso_2484_sorteio.csv'
+df = pd.read_csv(fileName, skiprows=6)
+
+nomeBolas = ["bola 1", "bola 2", "bola 3", "bola 4", "bola 5", "bola 6"]
+
+fig, ax = plt.subplots(2, 3)
+
+# this method helps you to go from a 2x3 array coordinates to 
+# 1x6 array, it will be helpful to use as below
+ax = ax.ravel()
+
+for idx, estaBola in enumerate(nomeBolas):
+    ax[idx].hist(df[estaBola], bins=60)
+    ax[idx].set_title(estaBola)
