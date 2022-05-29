@@ -13,9 +13,16 @@ fileName = 'mega_sena_asloterias_ate_concurso_2484_sorteio.csv'
 df = pd.read_csv(fileName, skiprows=6)
 
 nomeBolas = ["bola 1", "bola 2", "bola 3", "bola 4", "bola 5", "bola 6"]
+onlyBalls = pd.DataFrame()
+onlyBalls = df[nomeBolas]
+
+print("----------- Descritivo dos dados das bolas:")
+print(onlyBalls.describe().T)
+
+
+
 
 fig, ax = plt.subplots(2, 3)
-
 # this method helps you to go from a 2x3 array coordinates to 
 # 1x6 array, it will be helpful to use as below
 ax = ax.ravel()
