@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 28 22:10:04 2022
+
+@author: engca
+"""
+import pandas as pd
+from matplotlib import pyplot as plt
+
+df = pd.read_csv('mega_sena_asloterias_ate_concurso_2484_sorteio.csv', skiprows=6)
+
+df['bola 1'].plot()
